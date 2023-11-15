@@ -1,48 +1,54 @@
 # rep2 expack
 
-なんだかんだで歴史の長い、PHPでつくられたサーバーサイド2ちゃんねるビューワーです。
+令和最新版5ch.net対応rep2
 
-作りがレガシーなのは作っているひとがいちばんよくわかっているので、勘弁してつかあさい。
+とりあえず動く版
 
-[次世代版建設予定地](https://github.com/rsky/page2)
-
+オリジナル：https://github.com/rsky/p2-php
 
 ## セットアップ
 
 ### Git & Composerで
 
 1. 本体をclone
-  <pre>git clone git://github.com/rsky/p2-php.git
-  cd p2-php</pre>
 
-2. 依存ライブラリをダウンロード
-  <pre>curl -O http://getcomposer.org/composer.phar
-  php -d detect_unicode=0 composer.phar install</pre>
+```
+git clone https://github.com/hakase329/p2-php.git
+cd p2-php
+```
+
+2. 依存ライブラリをダウンロード(細かいバージョンは分からないが、composerは1系じゃないと駄目)
+
+```
+curl -O https://getcomposer.org/download/1.9.3/composer.phar
+php -d detect_unicode=0 composer.phar install
+```
 
 3. Webサーバが書き込めるようにディレクトリのアクセス権をセット  
   (CGI/suEXECIやCLI/Built-in web serverでは不要)
-  <pre>chmod 0777 data/* rep2/ic</pre>
 
+```
+chmod 0777 data/* rep2/ic
+```
 
 ## 動作環境
 以下のコマンドを実行して、全ての項目で `OK` が出たなら大丈夫です。
 
 何かエラーが出たらがんばって環境を整えてください。
 
-    php scripts/p2cmd.php check
-
+```
+php scripts/p2cmd.php check
+```
 
 ## Built-in web serverで使ってみる (PHP 5.4+)
 
 PHP 5.4の新機能、[ビルトインウェブサーバー](http://docs.php.net/manual/ja/features.commandline.webserver.php)で簡単に試せます。
 
 以下のようにすると、Webサーバーの設定をしなくても `http://localhost:8080/` でrep2を使えます。**(Windowsでも!)**
-
-    cd rep2
-    php -S localhost:8080 web.php
-
-moriyoshi++
-
+```
+cd rep2
+php -S localhost:8080 web.php
+```
 
 ## 画像を自動で保存したい
 
@@ -55,13 +61,20 @@ see also [doc/ImageCache2/README.txt](https://github.com/rsky/p2-php/blob/master
 1. SQLite以外のデータベースを使う場合はデータベースサーバーを立ち上げておく。  
 
 2. conf/conf_admin_ex.inc.phpでImageCache2を有効にする。
-  <pre>$_conf['expack.ic2.enabled'] = 3;</pre>
+
+```
+$_conf['expack.ic2.enabled'] = 3;
+```
 
 3. conf/conf_ic2.inc.phpで[DSN](http://pear.php.net/manual/ja/package.database.db.intro-dsn.php)を設定する。
-  <pre>$_conf['expack.ic2.general.dsn'] = 'mysql://username:password@localhost:3306/database';</pre>
+```
+$_conf['expack.ic2.general.dsn'] = 'mysql://username:password@localhost:3306/database';
+```
 
 4. setupスクリプトを実行する。
-  <pre>php scripts/ic2.php setup</pre>
+```
+php scripts/ic2.php setup
+```
 
 ### 注意
 
@@ -80,14 +93,17 @@ Webブラウザから変更できない項目は [conf/conf_admin.inc.php](https
 
 ## 更新
 
-    php scripts/p2cmd.php update
+```
+php scripts/p2cmd.php update
+```
 
 これは下記コマンドを個別に実行するのと等価です。
 
-    git pull
-    php -d detect_unicode=0 composer.phar self-update
-    php -d detect_unicode=0 composer.phar update
-
+```
+git pull
+php -d detect_unicode=0 composer.phar self-update
+php -d detect_unicode=0 composer.phar update
+```
 
 ## Authors & Contributors
 
