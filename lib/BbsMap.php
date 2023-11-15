@@ -266,7 +266,7 @@ class BbsMap
 
         // {{{ 設定
 
-        $bbsmenu_url = 'http://menu.2ch.net/bbsmenu.html';  // 公式メニューの URL
+        $bbsmenu_url = 'https://menu.5ch.net/bbsmenu.html';  // 公式メニューの URL
         $altmenu_url = 'http://www.2ch.se/bbsmenu.html';    // 代替メニューの URL
         $map_cache_path = $_conf['cache_dir'] . '/host_bbs_map.txt';
         $map_cache_lifetime = 600; // TTLは少し短めに
@@ -350,7 +350,7 @@ class BbsMap
         // }}}
         // {{{ パース
 
-        $regex = '!<A HREF=http://(\w+\.(?:2ch\.net|bbspink\.com|machi\.to|mathibbs\.com))/(\w+)/(?: TARGET=_blank)?>(.+?)</A>!';
+        $regex = '!<A HREF=https://(\w+\.(?:5ch\.net|bbspink\.com|machi\.to|mathibbs\.com))/(\w+)/(?: TARGET=_blank)?>(.+?)</A>!';
         preg_match_all($regex, $res_body, $matches, PREG_SET_ORDER);
 
         $map = array();

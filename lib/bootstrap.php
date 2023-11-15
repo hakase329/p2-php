@@ -110,7 +110,7 @@ if (!empty($_GET) || !empty($_POST)) {
 
     // エンコーディング判定
     if ($hint) {
-        $request_encoding = mb_detect_encoding($hint, 'ASCII,UTF-8,SJIS-win');
+        $request_encoding = mb_detect_encoding($hint, 'ASCII,UTF-8');
         if ($request_encoding === 'ASCII') {
             p2die('不正なエンコーディング判定ヒントです。');
         }

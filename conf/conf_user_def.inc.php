@@ -50,7 +50,7 @@ $conf_user_def['first_page'] = "first_cont.php"; // ("first_cont.php")
 // ("http://azlucky.s25.xrea.com/2chboard/bbsmenu.html")    // 2ch + ŠO•”BBS
 // ("http://menu.2ch.net/bbsmenu.html")                     // 2chŠî–{
 
-$conf_user_def['brdfile_online'] = "http://azlucky.s25.xrea.com/2chboard/bbsmenu.html";
+$conf_user_def['brdfile_online'] = "https://menu.5ch.net/bbsmenu.html";
 $conf_user_rules['brdfile_online'] = array('emptyToDef', 'invalidUrlToDef');
 
 // }}}

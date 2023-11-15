@@ -1850,7 +1850,7 @@ ERR;
         if ($nama_url) {
 
             // 2ch or pink - http://choco.2ch.net/test/read.cgi/event/1027770702/
-            if (preg_match('<^http://(\\w+\\.(?:2ch\\.net|bbspink\\.com))/test/read\\.(?:cgi|html)
+            if (preg_match('<^https://(\\w+\\.(?:5ch\\.net|bbspink\\.com))/test/read\\.(?:cgi|html)
                     /(\\w+)/([0-9]+)(?:/([^/]*))?>x', $nama_url, $matches))
             {
                 $host = $matches[1];
@@ -1859,7 +1859,7 @@ ERR;
                 $ls = (isset($matches[4]) && strlen($matches[4])) ? $matches[4] : '';
 
             // 2ch or pink âﬂãéÉçÉOhtml - http://pc.2ch.net/mac/kako/1015/10153/1015358199.html
-            } elseif (preg_match('<^(http://(\\w+\\.(?:2ch\\.net|bbspink\\.com))(?:/[^/]+)?/(\\w+)
+            } elseif (preg_match('<^(https://(\\w+\\.(?:5ch\\.net|bbspink\\.com))(?:/[^/]+)?/(\\w+)
                     /kako/\\d+(?:/\\d+)?/(\\d+)).html>x', $nama_url, $matches))
             {
                 $host = $matches[2];
